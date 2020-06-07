@@ -8,6 +8,13 @@ export const fetchUsers = (users) => {
   };
 };
 
+export const fetchStart = () => {
+  console.log("called");
+
+  return {
+    type: "FETCH_START",
+  };
+};
 export const fetchUserAddress = (userid, userAddresses) => {
   return {
     type: "FETCH_ADDRESS",
@@ -42,6 +49,7 @@ export const getUsers = () => {
 
 export const getUserAddress = (userid) => {
   return (dispatch) => {
+    dispatch(fetchStart());
     axios
       .get(`http://localhost:5000/users/${userid}`)
       .then((res) => {

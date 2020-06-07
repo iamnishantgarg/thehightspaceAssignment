@@ -4,6 +4,7 @@ const initialState = {
   currentUser: null,
   currentAddresses: null,
   error: null,
+  fetching: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,11 +19,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         currentUser: action.user._id,
         currentAddresses: action.user.addresses,
+        fetching: false,
       };
     case "ERROR_DISPLAY":
       return {
         ...state,
         error: action.error,
+        fetching: false,
+      };
+    case "FETCH_START":
+      return {
+        ...state,
+        fetching: true,
       };
 
     default:

@@ -6,6 +6,7 @@ import Address from "../Address/Address";
 class Addressbox extends Component {
   render() {
     let addresses = null;
+    if (this.props.fetching) addresses = <p>fetching</p>;
     if (this.props.addresses) {
       addresses = this.props.addresses.map((address, i) => {
         return <Address key={i}>{address}</Address>;
@@ -17,6 +18,7 @@ class Addressbox extends Component {
 const mapPropsToState = (state) => {
   return {
     addresses: state.currentAddresses,
+    fetching: state.fetching,
   };
 };
 export default connect(mapPropsToState)(Addressbox);
