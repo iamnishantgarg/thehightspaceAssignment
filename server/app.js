@@ -29,8 +29,7 @@ app.use(cors());
 // fetching addresses of single user
 
 app.get("/users/:id", (req, res) => {
-  console
-    .log(req.params.id)
+  User.findById(req.params.id)
     .then((user) => {
       if (user) return res.json({ success: true, addresses: user.addresses });
       else return res.json({ success: false, error: "No user with this id" });
