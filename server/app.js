@@ -5,6 +5,7 @@ const app = express();
 const MONGO_URI =
   "mongodb+srv://owner:dbowner@cluster0-hfi0g.mongodb.net/thehighspace?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 5000;
+const cors = require("cors");
 
 const seedData = (req, res) => {
   const data = {
@@ -24,6 +25,7 @@ const seedData = (req, res) => {
     });
 };
 
+app.use(cors());
 // fetching addresses of single user
 
 app.get("/users/:id", (req, res) => {
