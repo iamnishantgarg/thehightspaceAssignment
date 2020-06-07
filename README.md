@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Run npm install in server folder and than run node app
+### Run npm install in root folder and than run npm start
+
+
 ## Available Scripts
 
 In the project directory, you can run:
